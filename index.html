@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>看财报</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="landing-page">
+    <main class="container">
+      <header class="page-header">
+        <section class="hero">
+          <h1>
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              style="vertical-align: middle; margin-right: 10px; opacity: 0.75"
+              aria-hidden="true"
+            >
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+            竞对财报解读
+          </h1>
+          <p class="sub-title">系统化追踪李宁与核心竞对的经营差距，支撑战略决策。</p>
+        </section>
+      </header>
+
+      <section class="search-panel card">
+        <div class="search-row">
+          <input
+            id="tickerInput"
+            class="ticker-input"
+            type="text"
+            placeholder="输入股票代码，多个代码用逗号分隔，如：2331,2020"
+            aria-label="股票代码输入框"
+          />
+          <button id="viewReportBtn" class="primary-btn" type="button">
+            查看报告
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              style="margin-left: 6px; vertical-align: middle"
+              aria-hidden="true"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
+        <p id="searchHint" class="hint-text">
+          输入股票代码，多个代码用逗号分隔，如：2331,2020
+        </p>
+        <p id="inputErrorTip" class="input-error-tip">请先输入股票代码</p>
+      </section>
+
+      <section class="quick-select company-grid">
+        <button class="company-pill company-card active" type="button" data-code="li-ning">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            style="position: absolute; top: 12px; right: 12px; opacity: 0.3"
+            aria-hidden="true"
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+          <div class="card-ticker">2331.HK</div>
+          <div class="card-name">李宁 <span class="card-en">Li-Ning</span></div>
+          <div class="card-badge card-badge-active">已上线</div>
+        </button>
+        <button class="company-pill company-card active" type="button" data-code="anta">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            style="position: absolute; top: 12px; right: 12px; opacity: 0.3"
+            aria-hidden="true"
+          >
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
+          <div class="card-ticker">2020.HK</div>
+          <div class="card-name">安踏 <span class="card-en">ANTA</span></div>
+          <div class="card-badge card-badge-active">已上线</div>
+        </button>
+        <div class="company-card card-locked" aria-hidden="true">
+          <div class="card-ticker">1368.HK</div>
+          <div class="card-name">特步国际 <span class="card-en">XTEP</span></div>
+          <div class="card-badge">即将上线</div>
+        </div>
+        <div class="company-card card-locked" aria-hidden="true">
+          <div class="card-ticker">1361.HK</div>
+          <div class="card-name">361度 <span class="card-en">361°</span></div>
+          <div class="card-badge">即将上线</div>
+        </div>
+        <div class="company-card card-locked" aria-hidden="true">
+          <div class="card-ticker">NKE.US</div>
+          <div class="card-name">耐克 <span class="card-en">Nike</span></div>
+          <div class="card-badge international">国际对标</div>
+        </div>
+        <div class="company-card card-locked" aria-hidden="true">
+          <div class="card-ticker">ADDYY.US</div>
+          <div class="card-name">阿迪达斯 <span class="card-en">Adidas</span></div>
+          <div class="card-badge international">国际对标</div>
+        </div>
+      </section>
+
+      <section class="status-line">
+        当前收录公司：李宁（2331.HK）· 安踏（2020.HK）及主要竞对
+      </section>
+
+      <section class="request-ticket card">
+        <div>
+          <h3>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              style="vertical-align: middle; margin-right: 6px; opacity: 0.6"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="16" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
+            申请新增竞对公司
+          </h3>
+          <div id="request-feedback" class="request-feedback" style="display: none">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              style="vertical-align: middle; margin-right: 6px; color: #16a34a"
+              aria-hidden="true"
+            >
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span id="request-feedback-text"></span>
+          </div>
+          <p>如需新增分析标的，请提交公司名称，我们将优先完成数据接入。</p>
+        </div>
+        <button id="requestBtn" class="ghost-btn" type="button">+ 提交申请</button>
+      </section>
+
+      <footer>
+        <small>
+          本平台数据来源于李宁、安踏品牌官网投资者关系页面公开发布的年度业绩报告
+        </small>
+      </footer>
+    </main>
+
+    <dialog id="requestDialog">
+      <form method="dialog" class="dialog-form">
+        <h4>提交新增申请</h4>
+        <label>
+          公司名称（可选多家）
+          <input id="companyRequestInput" type="text" placeholder="例如：斯凯奇、鸿星尔克" />
+        </label>
+        <label>
+          Email（可选）
+          <input id="emailInput" type="email" placeholder="用于新公司上线通知" />
+        </label>
+        <div class="dialog-actions">
+          <button value="cancel" class="ghost-btn">取消</button>
+          <button value="confirm" class="primary-btn">加入队列</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

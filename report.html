@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>财报对比解读 - 李宁 vs 安踏</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="report-header">
+        <a class="back-link" href="./index.html">← 首页</a>
+        <div class="brand-wrap">
+          <div class="brands">
+            <span class="badge" id="primaryCode">2331.HK</span>
+            <h1 id="titleText">李宁 vs 安踏</h1>
+          </div>
+          <p id="metaText">Annual Report 对比（2024-2026）</p>
+        </div>
+        <a class="switch-link" href="./index.html">换公司 →</a>
+      </header>
+
+      <section class="filter-row report-controls">
+        <label>
+          主公司
+          <select id="leftCompany"></select>
+        </label>
+        <label>
+          对比公司
+          <select id="rightCompany"></select>
+        </label>
+        <label>
+          年份
+          <select id="yearSelect"></select>
+        </label>
+      </section>
+      <div
+        id="year-unavailable-tip"
+        class="year-tip"
+        style="display: none"
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          style="flex-shrink: 0; color: #92400e"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <circle cx="12" cy="16" r="0.5" fill="currentColor" />
+        </svg>
+        2026 年财报暂未发布，预计 2027 年 3 月披露。当前展示最新已发布年度（2025）。
+      </div>
+
+      <section class="gap-dashboard analysis-box">
+        <h3>战略差距仪表盘</h3>
+        <div class="gap-grid">
+          <div class="gap-card kpi-card" id="gapCardRevenue"></div>
+          <div class="gap-card kpi-card" id="gapCardGross"></div>
+          <div class="gap-card kpi-card" id="gapCardNet"></div>
+          <div class="gap-card kpi-card" id="gapCardCash"></div>
+        </div>
+      </section>
+
+      <section class="analysis-box trend-box">
+        <h3 id="trendSectionTitle">李宁近三年经营趋势（2023–2025）</h3>
+        <div class="trend-grid" id="trendSignalsGrid"></div>
+        <p class="trend-footnote">
+          趋势方向仅反映李宁自身经营变化，与安踏差距变化详见上方仪表盘。
+        </p>
+      </section>
+
+      <section class="financial-columns">
+        <article class="section-card income report-section section-income">
+          <h2>利润表</h2>
+          <p>利润表（期间）</p>
+          <div class="kpi-list" id="incomeKpis"></div>
+        </article>
+        <article class="section-card balance report-section section-balance">
+          <h2>资产负债表</h2>
+          <p>资产负债表（时点）</p>
+          <div class="kpi-list" id="balanceKpis"></div>
+        </article>
+        <article class="section-card cash report-section section-cashflow">
+          <h2>现金流量表</h2>
+          <p>现金流量表（期间）</p>
+          <div class="kpi-list" id="cashKpis"></div>
+        </article>
+      </section>
+
+      <section class="analysis-grid">
+        <article class="analysis-box">
+          <h3 id="leftAnalysisTitle">李宁解读</h3>
+          <ul id="leftAnalysisList"></ul>
+        </article>
+        <article class="analysis-box">
+          <h3 id="rightAnalysisTitle">安踏解读</h3>
+          <ul id="rightAnalysisList"></ul>
+        </article>
+      </section>
+
+      <section class="analysis-box" style="margin-top: 12px">
+        <h3>对比结论（自动生成）</h3>
+        <ul id="compareSummary"></ul>
+        <div id="aiSectionContainer"></div>
+      </section>
+
+      <section class="analysis-box" style="margin-top: 12px">
+        <h3>综合诊断</h3>
+        <p id="liNingDiagnosis" class="diagnosis-text"></p>
+      </section>
+
+      <p class="disclaimer-footer">
+        本平台数据来源于李宁、安踏品牌官网投资者关系页面公开发布的年度业绩报告
+      </p>
+    </main>
+
+    <div id="ai-drawer" class="ai-drawer" aria-hidden="true">
+      <div class="ai-drawer-header">
+        <div class="ai-drawer-title">
+          <span class="ai-drawer-icon">✦</span>
+          AI 深度解读
+          <span class="ai-drawer-year" id="ai-drawer-year"></span>
+        </div>
+        <button type="button" class="ai-drawer-close" aria-label="关闭" onclick="closeAIDrawer()">✕</button>
+      </div>
+      <div class="ai-drawer-body" id="ai-drawer-body">
+        <p class="ai-drawer-placeholder">
+          点击任意年度的「深度解读」按钮，AI 将从李宁内部视角分析当年财报差距与归因。
+        </p>
+      </div>
+      <div class="ai-drawer-footer">
+        <span>基于港交所公开年报数据生成，仅供内部参考</span>
+      </div>
+    </div>
+    <div id="ai-drawer-overlay" class="ai-drawer-overlay" onclick="closeAIDrawer()" aria-hidden="true"></div>
+
+    <script src="./data.js"></script>
+    <script src="./ai-analysis.js"></script>
+    <script src="./report.js"></script>
+  </body>
+</html>
